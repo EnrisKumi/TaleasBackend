@@ -96,6 +96,15 @@ router.post('/users/:id', async(req,res)=>{
     });
 });
 
+router.get('/one2many/:id', async (req,res,next)=>{
+    try{
+        const phone = await PhoneNumber.findById(req.params.id)
+        res.status(200).json(phone)
+    }catch(err){
+        res.send('Error '+ err)
+    }
+})
+
 
 
 /**

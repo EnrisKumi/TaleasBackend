@@ -112,7 +112,7 @@ router.post('/', async(req,res)=> {
         const a = await user.save();
         res.status(200).json(a);
     }catch(err){
-        res.send('Error')
+        res.send(err)
     }
 })
 
@@ -171,13 +171,19 @@ router.get('/:id', async (req,res,next)=>{
 router.patch('/:id', async (req,res)=>{
     try{
         const user = await User.findById(req.params.id)
-        const {firstName,lastName}= req.body
+        const {name,surname,email,address}= req.body
 
-        if(firstName){
-            user.firstName= firstName
+        if(name){
+            user.name= name
         }
-        if(lastName){
-            user.lastName= lastName
+        if(surname){
+            user.surname= surname
+        }
+        if(email){
+            user.email = email
+        }
+        if(address){
+            user.address = address
         }
 
         const us = await user.save()
