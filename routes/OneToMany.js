@@ -124,7 +124,7 @@ router.get('/phonenr/:id', async (req,res,next)=>{
 
 router.delete('/phonenr/:id', async(req, res) =>{
     try{
-        const findPhone = await PhoneNumber.findById(req.params.id).remove()
+        const findPhone = await PhoneNumber.findById(req.params.id).deleteOne()
         res.status(200).json(findPhone)
 
     }catch(err)
@@ -154,7 +154,7 @@ router.delete('/phonenr/:id', async(req, res) =>{
  *            $ref: '#/components/schemas/User'
  */
 
-router.patch('/users/:id', async(req, res) =>{
+/*router.patch('/users/:id', async(req, res) =>{
     try{
         const user = await User.findById(req.params.id)
         const {firstName,lastName}= req.body
@@ -170,5 +170,25 @@ router.patch('/users/:id', async(req, res) =>{
         res.send('Error')
     }
 })
+*/
+
+router.patch('/phonenumbers/:id', async(req, res) =>{
+    try{
+        const phone = await PhoneNumber.findById(req.params.id)
+        const {providerName,number}= req.body
+        if(providerName){
+            phone.providerName= providerName
+        }
+        if(number){
+            phone.number=number
+        }
+        const us = await phone.save()
+        res.json(us)
+    }catch(err){
+        res.send(err)
+    }
+})
+
+
 
 module.exports = router
