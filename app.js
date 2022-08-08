@@ -4,6 +4,7 @@ require('dotenv').config();
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require ('swagger-jsdoc');
 const cors = require('cors');
+const serverless = require('serverless-http');
 const port = process.env.PORT || 9000;
 
 //start app
@@ -49,6 +50,9 @@ const OneToMany = require('./routes/OneToMany')
 const swaggerJSDoc = require('swagger-jsdoc')
 app.use('/one2many',OneToMany)
 
+/*
 app.listen(port, ()=>{
     console.log(`Server started at: http://localhost:${port}`);
-})
+})*/
+
+module.exports.handler = serverless(app);
