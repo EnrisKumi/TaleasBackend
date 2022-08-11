@@ -8,7 +8,7 @@
       "name": "aws",
       "runtime": "nodejs16.x",
       "stage": "dev",
-      "region": "us-east-1",
+      "region": "eu-central-1",
       "memorySize": 128,
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
@@ -174,7 +174,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-enris/dev/1659962487445-2022-08-08T12:41:27.445Z/aws-enris.zip"
+                "S3Key": "serverless/aws-enris/dev/1660212592631-2022-08-11T10:09:52.631Z/aws-enris.zip"
               },
               "Handler": "app.handler",
               "Runtime": "nodejs16.x",
@@ -417,7 +417,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1659962434541": {
+          "ApiGatewayDeployment1660212525489": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -679,7 +679,7 @@
     "artifact": "C:\\Users\\ADMIN\\Desktop\\crud\\.serverless\\aws-enris.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-enris/dev/1659962487445-2022-08-08T12:41:27.445Z",
+    "artifactDirectoryName": "serverless/aws-enris/dev/1660212592631-2022-08-11T10:09:52.631Z",
     "artifact": "aws-enris.zip"
   }
 }
