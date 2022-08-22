@@ -1,19 +1,88 @@
-service: aws-enris
+service: Enris-Serverless
 provider:
   name: aws
   runtime: nodejs16.x
   stage: dev
   region: eu-central-1
   memorySize: 128
+
 functions:
-  app:
-    handler: app.handler
-    events: 
-      - http: 
-          path: /
-          method: ANY
+  getUsers:
+    handler: handler.getUsers
+    events:
+      - http:
+          path: users
+          method: get
           cors: true
-      - http: 
-          path: /{proxy+}
-          method: ANY
+  getOneUser:
+    handler: handler.getOneUser
+    events:
+      - http:
+          path: users/{id}
+          method: get
           cors: true
+  postUser:
+    handler: handler.postUser
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+  updateUser:
+    handler: handler.updateUser
+    events:
+      - http:
+          path: users/{id}
+          method: patch
+          cors: true
+  deleteUser:
+    handler: handler.deleteUser
+    events:
+      - http: 
+          path: users/{id}
+          method: delete
+          cors: true
+  getPhoneNumbers:
+    handler: handler.getPhoneNumbers
+    events:
+      - http:
+          path: phonenr
+          method: get
+          cors: true
+  postPhoneNumbers:
+    handler: handler.postPhoneNumbers
+    events:
+      - http:
+          path: phonenr/user/{id}
+          method: post
+          cors: true
+  getPhoneUser:
+    handler: handler.getPhoneUser
+    events:
+      - http:
+          path: phonenr/user/{id}
+          method: get
+          cors: true
+  getOnePhone:
+    handler: handler.getOnePhone
+    events:
+      - http:
+          path: phonenr/{id}
+          method: get
+          cors: true
+  deletePhone:
+    handler: handler.deletePhone
+    events:
+      - http:
+          path: phonenr/{id}
+          method: delete
+          cors: true
+  updatePhone:
+    handler: handler.updatePhone
+    events:
+      - http:
+          path: phonenr/{id}
+          method: patch
+          cors: true
+plugins:
+  - serverless-offline
