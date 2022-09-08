@@ -14,8 +14,8 @@ functions:
           path: users
           method: get
           cors: true
-  getOneUser:
-    handler: handler.getOneUser
+  getUsersById:
+    handler: handler.getUsersById
     events:
       - http:
           path: users/{id}
@@ -28,8 +28,8 @@ functions:
           path: users
           method: post
           cors: true
-  updateUser:
-    handler: handler.updateUser
+  updateUsers:
+    handler: handler.updateUsers
     events:
       - http:
           path: users/{id}
@@ -86,3 +86,5 @@ functions:
           cors: true
 plugins:
   - serverless-offline
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies

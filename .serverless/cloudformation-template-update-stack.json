@@ -77,10 +77,10 @@
         "LogGroupName": "/aws/lambda/Enris-Serverless-dev-getUsers"
       }
     },
-    "GetOneUserLogGroup": {
+    "GetUsersByIdLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/Enris-Serverless-dev-getOneUser"
+        "LogGroupName": "/aws/lambda/Enris-Serverless-dev-getUsersById"
       }
     },
     "PostUserLogGroup": {
@@ -89,10 +89,10 @@
         "LogGroupName": "/aws/lambda/Enris-Serverless-dev-postUser"
       }
     },
-    "UpdateUserLogGroup": {
+    "UpdateUsersLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/Enris-Serverless-dev-updateUser"
+        "LogGroupName": "/aws/lambda/Enris-Serverless-dev-updateUsers"
       }
     },
     "DeleteUserLogGroup": {
@@ -221,7 +221,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.getUsers",
         "Runtime": "nodejs16.x",
@@ -239,18 +239,18 @@
         "GetUsersLogGroup"
       ]
     },
-    "GetOneUserLambdaFunction": {
+    "GetUsersByIdLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
-        "Handler": "handler.getOneUser",
+        "Handler": "handler.getUsersById",
         "Runtime": "nodejs16.x",
-        "FunctionName": "Enris-Serverless-dev-getOneUser",
+        "FunctionName": "Enris-Serverless-dev-getUsersById",
         "MemorySize": 128,
         "Timeout": 6,
         "Role": {
@@ -261,7 +261,7 @@
         }
       },
       "DependsOn": [
-        "GetOneUserLogGroup"
+        "GetUsersByIdLogGroup"
       ]
     },
     "PostUserLambdaFunction": {
@@ -271,7 +271,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.postUser",
         "Runtime": "nodejs16.x",
@@ -289,18 +289,18 @@
         "PostUserLogGroup"
       ]
     },
-    "UpdateUserLambdaFunction": {
+    "UpdateUsersLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
-        "Handler": "handler.updateUser",
+        "Handler": "handler.updateUsers",
         "Runtime": "nodejs16.x",
-        "FunctionName": "Enris-Serverless-dev-updateUser",
+        "FunctionName": "Enris-Serverless-dev-updateUsers",
         "MemorySize": 128,
         "Timeout": 6,
         "Role": {
@@ -311,7 +311,7 @@
         }
       },
       "DependsOn": [
-        "UpdateUserLogGroup"
+        "UpdateUsersLogGroup"
       ]
     },
     "DeleteUserLambdaFunction": {
@@ -321,7 +321,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.deleteUser",
         "Runtime": "nodejs16.x",
@@ -346,7 +346,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.getPhoneNumbers",
         "Runtime": "nodejs16.x",
@@ -371,7 +371,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.postPhoneNumbers",
         "Runtime": "nodejs16.x",
@@ -396,7 +396,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.getPhoneUser",
         "Runtime": "nodejs16.x",
@@ -421,7 +421,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.getOnePhone",
         "Runtime": "nodejs16.x",
@@ -446,7 +446,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.deletePhone",
         "Runtime": "nodejs16.x",
@@ -471,7 +471,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Enris-Serverless/dev/1661181774660-2022-08-22T15:22:54.660Z/Enris-Serverless.zip"
+          "S3Key": "serverless/Enris-Serverless/dev/1662638280780-2022-09-08T11:58:00.780Z/Enris-Serverless.zip"
         },
         "Handler": "handler.updatePhone",
         "Runtime": "nodejs16.x",
@@ -489,114 +489,114 @@
         "UpdatePhoneLogGroup"
       ]
     },
-    "GetUsersLambdaVersionRfSNSBeZ9KoS9mlsOiiyLGUKb7ZXm65HPfQZRXAeABA": {
+    "GetUsersLambdaVersionuxvTH6kKtwwA6TWVK2vQlkmnPwLjmZ678eWSAtna4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUsersLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "GetOneUserLambdaVersionkqmp9RQzKxzodT1D6EuAZrgbBSJ5DKDv2t0CjSru6g": {
+    "GetUsersByIdLambdaVersioniEL7OtxPwJ3GBJy9MsIsxgyQrPjCAgWwyJu2CKORA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "GetOneUserLambdaFunction"
+          "Ref": "GetUsersByIdLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "PostUserLambdaVersion270050fxN40OkoV1fVyYorUdWsXNaS3Ax1H8IY9tMo": {
+    "PostUserLambdaVersionCej0ABsT8edkv4CIUq6agMJnTBOZoHRFf62WsCzMeE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PostUserLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "UpdateUserLambdaVersionvDYVMQS3P2CiUGliJOYRf1Xp9DCLqW46ZtMBqv3cCrk": {
+    "UpdateUsersLambdaVersion8ZtgG4GWQfan2ZjQ7fydfjGLlBYsqsHbffdRnQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "UpdateUserLambdaFunction"
+          "Ref": "UpdateUsersLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "DeleteUserLambdaVersionar1g6GY9hh9OEY3K2lK2MOGetJOHpVDksrHvyT9ns": {
+    "DeleteUserLambdaVersionDJ0hZeDHWmV2gE87Z0s4Df5qgoEESjDtlzwIuDwN5k": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeleteUserLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "GetPhoneNumbersLambdaVersionbxbKcOCFLO5CP0jhm1i9YhpRJRR5pbV0fRTYaSDmWs": {
+    "GetPhoneNumbersLambdaVersionoJJsAQVhvIPk4IxS74SP9PmG5fXChdTpcH8cvMpkc0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPhoneNumbersLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "PostPhoneNumbersLambdaVersionsVBrevd9vRxSb2udnzVTIfijKB2DkHXce9K9ORkk0g": {
+    "PostPhoneNumbersLambdaVersionWxeHc7aDq1V5QJ7SCOUy1bXnmMVvWrxhxJ6U0shBus": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PostPhoneNumbersLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "GetPhoneUserLambdaVersionsnrNjtqyOWTbw9WjGpfhZUzMYg7R6ccNpjJD19YQd0": {
+    "GetPhoneUserLambdaVersionQZp89DZi5zEsaMNFJGpADI8nTgw52KHz5E1MOwVQGA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPhoneUserLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "GetOnePhoneLambdaVersionFcrWvgOR2M1NaOAxcBbi7Za6F1CP7EgYBz2kLm44kE": {
+    "GetOnePhoneLambdaVersionifWyBapQEeeLACNMtcc4bcK2oDwE6jp2CqjBCZaQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetOnePhoneLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "DeletePhoneLambdaVersionK8NyDBRNIDYa6ozV6Fo0XPYcadGv8dAONb6PO2jkbps": {
+    "DeletePhoneLambdaVersion81DW78dXu7IrHZEptYWBW8KWPIEDmvSRx2fcwHGM3bE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeletePhoneLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
-    "UpdatePhoneLambdaVersionVljd6SrMUX57c55iaUFAkKDRbjLdPqIivWHg9lLkB4": {
+    "UpdatePhoneLambdaVersionUz2cBHTwoD2wWlJ1PZqm6yNGn05n8GTxkUTCPjSTU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdatePhoneLambdaFunction"
         },
-        "CodeSha256": "55m7pO9QP/lkQE58DYPn5nTxT4FuVJ4mfMrSdABtR0E="
+        "CodeSha256": "I5k8XyzxhaAMykJwYnlwwE7E4ueJmdJffkVw+2kkYsc="
       }
     },
     "ApiGatewayRestApi": {
@@ -991,7 +991,7 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "GetOneUserLambdaFunction",
+                    "GetUsersByIdLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -1003,7 +1003,7 @@
         "MethodResponses": []
       },
       "DependsOn": [
-        "GetOneUserLambdaPermissionApiGateway"
+        "GetUsersByIdLambdaPermissionApiGateway"
       ]
     },
     "ApiGatewayMethodUsersPost": {
@@ -1083,7 +1083,7 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "UpdateUserLambdaFunction",
+                    "UpdateUsersLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -1095,7 +1095,7 @@
         "MethodResponses": []
       },
       "DependsOn": [
-        "UpdateUserLambdaPermissionApiGateway"
+        "UpdateUsersLambdaPermissionApiGateway"
       ]
     },
     "ApiGatewayMethodUsersIdVarDelete": {
@@ -1420,7 +1420,7 @@
         "UpdatePhoneLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1661181721865": {
+    "ApiGatewayDeployment1662638250823": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1484,12 +1484,12 @@
         }
       }
     },
-    "GetOneUserLambdaPermissionApiGateway": {
+    "GetUsersByIdLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "GetOneUserLambdaFunction",
+            "GetUsersByIdLambdaFunction",
             "Arn"
           ]
         },
@@ -1558,12 +1558,12 @@
         }
       }
     },
-    "UpdateUserLambdaPermissionApiGateway": {
+    "UpdateUsersLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "UpdateUserLambdaFunction",
+            "UpdateUsersLambdaFunction",
             "Arn"
           ]
         },
@@ -1867,43 +1867,43 @@
     "GetUsersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUsersLambdaVersionRfSNSBeZ9KoS9mlsOiiyLGUKb7ZXm65HPfQZRXAeABA"
+        "Ref": "GetUsersLambdaVersionuxvTH6kKtwwA6TWVK2vQlkmnPwLjmZ678eWSAtna4"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-GetUsersLambdaFunctionQualifiedArn"
       }
     },
-    "GetOneUserLambdaFunctionQualifiedArn": {
+    "GetUsersByIdLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetOneUserLambdaVersionkqmp9RQzKxzodT1D6EuAZrgbBSJ5DKDv2t0CjSru6g"
+        "Ref": "GetUsersByIdLambdaVersioniEL7OtxPwJ3GBJy9MsIsxgyQrPjCAgWwyJu2CKORA"
       },
       "Export": {
-        "Name": "sls-Enris-Serverless-dev-GetOneUserLambdaFunctionQualifiedArn"
+        "Name": "sls-Enris-Serverless-dev-GetUsersByIdLambdaFunctionQualifiedArn"
       }
     },
     "PostUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PostUserLambdaVersion270050fxN40OkoV1fVyYorUdWsXNaS3Ax1H8IY9tMo"
+        "Ref": "PostUserLambdaVersionCej0ABsT8edkv4CIUq6agMJnTBOZoHRFf62WsCzMeE"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-PostUserLambdaFunctionQualifiedArn"
       }
     },
-    "UpdateUserLambdaFunctionQualifiedArn": {
+    "UpdateUsersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserLambdaVersionvDYVMQS3P2CiUGliJOYRf1Xp9DCLqW46ZtMBqv3cCrk"
+        "Ref": "UpdateUsersLambdaVersion8ZtgG4GWQfan2ZjQ7fydfjGLlBYsqsHbffdRnQ"
       },
       "Export": {
-        "Name": "sls-Enris-Serverless-dev-UpdateUserLambdaFunctionQualifiedArn"
+        "Name": "sls-Enris-Serverless-dev-UpdateUsersLambdaFunctionQualifiedArn"
       }
     },
     "DeleteUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeleteUserLambdaVersionar1g6GY9hh9OEY3K2lK2MOGetJOHpVDksrHvyT9ns"
+        "Ref": "DeleteUserLambdaVersionDJ0hZeDHWmV2gE87Z0s4Df5qgoEESjDtlzwIuDwN5k"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-DeleteUserLambdaFunctionQualifiedArn"
@@ -1912,7 +1912,7 @@
     "GetPhoneNumbersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPhoneNumbersLambdaVersionbxbKcOCFLO5CP0jhm1i9YhpRJRR5pbV0fRTYaSDmWs"
+        "Ref": "GetPhoneNumbersLambdaVersionoJJsAQVhvIPk4IxS74SP9PmG5fXChdTpcH8cvMpkc0"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-GetPhoneNumbersLambdaFunctionQualifiedArn"
@@ -1921,7 +1921,7 @@
     "PostPhoneNumbersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PostPhoneNumbersLambdaVersionsVBrevd9vRxSb2udnzVTIfijKB2DkHXce9K9ORkk0g"
+        "Ref": "PostPhoneNumbersLambdaVersionWxeHc7aDq1V5QJ7SCOUy1bXnmMVvWrxhxJ6U0shBus"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-PostPhoneNumbersLambdaFunctionQualifiedArn"
@@ -1930,7 +1930,7 @@
     "GetPhoneUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPhoneUserLambdaVersionsnrNjtqyOWTbw9WjGpfhZUzMYg7R6ccNpjJD19YQd0"
+        "Ref": "GetPhoneUserLambdaVersionQZp89DZi5zEsaMNFJGpADI8nTgw52KHz5E1MOwVQGA"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-GetPhoneUserLambdaFunctionQualifiedArn"
@@ -1939,7 +1939,7 @@
     "GetOnePhoneLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetOnePhoneLambdaVersionFcrWvgOR2M1NaOAxcBbi7Za6F1CP7EgYBz2kLm44kE"
+        "Ref": "GetOnePhoneLambdaVersionifWyBapQEeeLACNMtcc4bcK2oDwE6jp2CqjBCZaQ"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-GetOnePhoneLambdaFunctionQualifiedArn"
@@ -1948,7 +1948,7 @@
     "DeletePhoneLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeletePhoneLambdaVersionK8NyDBRNIDYa6ozV6Fo0XPYcadGv8dAONb6PO2jkbps"
+        "Ref": "DeletePhoneLambdaVersion81DW78dXu7IrHZEptYWBW8KWPIEDmvSRx2fcwHGM3bE"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-DeletePhoneLambdaFunctionQualifiedArn"
@@ -1957,7 +1957,7 @@
     "UpdatePhoneLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdatePhoneLambdaVersionVljd6SrMUX57c55iaUFAkKDRbjLdPqIivWHg9lLkB4"
+        "Ref": "UpdatePhoneLambdaVersionUz2cBHTwoD2wWlJ1PZqm6yNGn05n8GTxkUTCPjSTU"
       },
       "Export": {
         "Name": "sls-Enris-Serverless-dev-UpdatePhoneLambdaFunctionQualifiedArn"

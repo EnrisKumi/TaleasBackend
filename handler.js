@@ -27,93 +27,123 @@ const returnError = (error) => {
 module.exports.getUsers = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   try {
-    await connectToDatabase();
-    const user = await User.find();
-    if (!user) {
-      callback(null, createErrorResponse(404, "No user Found."));
-    }
+      await connectToDatabase();
+      const users = await User.find();
+      if (!users) {
+          callback(null, createErrorResponse(404, 'No Users Found.'));
+      }
 
-    callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(user),
-    });
+      return {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Allow": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Headers": "*"
+          },
+          statusCode: 200,
+          body: JSON.stringify(users),
+      };
   } catch (error) {
-    returnError(error);
+      returnError(error);
   }
 };
 
-module.exports.getOneUser = async (event, context, callback) => {
+
+
+module.exports.getUsersById = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const id = event.pathParameters.id;
 
   try {
-    await connectToDatabase();
-    const user = await User.findById(id);
+      await connectToDatabase();
+      const users = await User.findById(id);
 
-    if (!user) {
-      callback(null, createErrorResponse(404, `No user found with id: ${id}`));
-    }
+      if (!users) {
+          callback(null, createErrorResponse(404, `No User found with id: ${id}`));
+      }
 
-    callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(user),
-    });
+      callback(null, {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Allow": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Headers": "*"
+          },
+          statusCode: 200,
+          body: JSON.stringify(users),
+      });
   } catch (error) {
-    returnError(error);
+      returnError(error);
   }
 };
+
 
 module.exports.postUser = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
-  const { name, surname, email, address } = JSON.parse(event.body);
+  const { cognitoId, email } = JSON.parse(
+      event.body
+  );
 
-  const user = new User({
-    name,
-    surname,
-    email,
-    address,
+  const users = new User({
+      cognitoId,
+      email,
   });
 
   try {
-    await connectToDatabase();
-    console.log(user);
-    const u = await User.create(user);
-    callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(u),
-    });
+      await connectToDatabase();
+      console.log(users);
+      const user = await User.create(users);
+      return {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Allow": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Headers": "*"
+          },
+          statusCode: 200,
+          body: JSON.stringify(user),
+      };
   } catch (error) {
-    returnError(error);
+      returnError(error);
   }
 };
 
-module.exports.updateUser = async (event, context, callback) => {
+module.exports.updateUsers = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const data = JSON.parse(event.body);
 
-  const { name, surname, email, address } = data;
+  const { firstName, lastName, tech } = data;
 
   try {
-    await connectToDatabase();
+      await connectToDatabase();
 
-    const user = await User.findById(event.pathParameters.id);
+      const user = await User.findById(event.pathParameters.id);
 
-    if (user) {
-      user.name = name || user.name;
-      user.surname = surname || user.surname;
-      user.email = email || user.email;
-      user.address = address || user.address;
-    }
+      if (user) {
+          user.firstName = firstName || user.firstName;
+          user.lastName = lastName || user.lastName;
+          user.tech = tech || user.tech;
+      }
 
-    const newuser = await user.save();
+      const newUser = await user.save();
 
-    callback(null, {
-      statusCode: 204,
-      body: JSON.stringify(newuser),
-    });
+      callback(null, {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Allow": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Headers": "*"
+          },
+          statusCode: 204,
+          body: JSON.stringify(newUser),
+      });
   } catch (error) {
-    returnError(error);
+      returnError(error);
   }
 };
 
@@ -122,17 +152,24 @@ module.exports.deleteUser = async (event, context, callback) => {
   const id = event.pathParameters.id;
 
   try {
-    await connectToDatabase();
-    const user = await User.findByIdAndRemove(id);
-    callback(null, {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: `Removed user with id: ${user._id}`,
-        user,
-      }),
-    });
+      await connectToDatabase();
+      const user = await User.findByIdAndRemove(id);
+      callback(null, {
+          headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              "Allow": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+              "Access-Control-Allow-Headers": "*"
+          },
+          statusCode: 200,
+          body: JSON.stringify({
+              message: `Removed user with id: ${user._id}`,
+              user,
+          }),
+      });
   } catch (error) {
-    returnError(error);
+      returnError(error);
   }
 };
 

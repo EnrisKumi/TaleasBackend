@@ -19,6 +19,8 @@
     "mongoose": "^6.5.2",
     "serverless": "^3.21.0",
     "serverless-http": "^3.0.1",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.0.0",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.5.0",
     "validator": "^13.7.0"
